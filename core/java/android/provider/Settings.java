@@ -4580,6 +4580,15 @@ public final class Settings {
                 NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String DEVICE_HOSTNAME = "device_hostname";
+
+        /** @hide */
+        public static final Validator DEVICE_HOSTNAME_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5016,6 +5025,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
             PRIVATE_SETTINGS.add(VOLUME_LINK_NOTIFICATION);
             PRIVATE_SETTINGS.add(ACCELEROMETER_ROTATION_ANGLES);
+            PRIVATE_SETTINGS.add(DEVICE_HOSTNAME);
         }
 
         /**
@@ -5122,6 +5132,7 @@ public final class Settings {
             VALIDATORS.put(WAKE_WHEN_PLUGGED_OR_UNPLUGGED, WAKE_WHEN_PLUGGED_OR_UNPLUGGED_VALIDATOR);
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
+            VALIDATORS.put(DEVICE_HOSTNAME, DEVICE_HOSTNAME_VALIDATOR);
         }
 
         /**
