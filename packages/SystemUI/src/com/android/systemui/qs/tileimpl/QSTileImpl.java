@@ -206,6 +206,18 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         }
     }
 
+    public boolean isVibrationEnabled() {
+        return (Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE, 0, UserHandle.USER_CURRENT) == 1);
+    }
+
+    public void vibrateTile(int duration) {
+        if (!isVibrationEnabled()) { return; }
+        if (mVibrator != null) {
+            if (mVibrator.hasVibrator()) { mVibrator.vibrate(duration); }
+        }
+    }
+
     public void addCallback(Callback callback) {
         mHandler.obtainMessage(H.ADD_CALLBACK, callback).sendToTarget();
     }
@@ -224,6 +236,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                         mStatusBarStateController.getState())));
         mHandler.sendEmptyMessage(H.CLICK);
         performHapticFeedback(VibrationEffect.get(VibrationEffect.EFFECT_POP));
+        vibrateTile(30);
     }
 
     public void secondaryClick() {
@@ -244,6 +257,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 mContext,
                 Prefs.Key.QS_LONG_PRESS_TOOLTIP_SHOWN_COUNT,
                 QuickStatusBarHeader.MAX_TOOLTIP_SHOWN_COUNT);
+        vibrateTile(30);
     }
 
     public LogMaker populate(LogMaker logMaker) {
