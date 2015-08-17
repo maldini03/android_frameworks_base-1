@@ -61,4 +61,7 @@
     <string name="screenrecord_start">Start</string>
     <string name="screenrecord_start_label">Start Recording?</string>
     <string name="screenrecord_taps_label">Show touches on screen</string>
+
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Volume panel</string>
 </resources>
