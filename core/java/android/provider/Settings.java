@@ -4845,6 +4845,16 @@ public final class Settings {
          */
         public static final String GESTURE_TWO_FINGER_SWIPE = "gesture_two_finger_swipe";
 
+       /**
+        * Defines the global heads up notification snooze
+        * @hide
+        */
+        public static final String HEADS_UP_NOTIFICATION_SNOOZE = "heads_up_notification_snooze";
+
+        /** @hide */
+        private static final Validator HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR =
+              new SettingsValidators.InclusiveIntegerRangeValidator(0, 1200000);
+
         /**
          * Swipe to screenshot gesture
          * Also known as Three Fingers Screenshot.
@@ -5049,6 +5059,7 @@ public final class Settings {
             AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC,
             NOTIFICATION_LIGHT_PULSE,
             NAVIGATION_HANDLE_WIDTH,
+            HEADS_UP_NOTIFICATION_SNOOZE
         };
 
         /**
@@ -5213,6 +5224,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_LOCATION);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_UNITS);
+            PRIVATE_SETTINGS.add(HEADS_UP_NOTIFICATION_SNOOZE);
         }
 
         /**
@@ -5336,6 +5348,7 @@ public final class Settings {
             VALIDATORS.put(NETWORK_TRAFFIC_LOCATION, NETWORK_TRAFFIC_LOCATION_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE, NETWORK_TRAFFIC_AUTOHIDE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_UNITS, NETWORK_TRAFFIC_UNITS_VALIDATOR);
+            VALIDATORS.put(HEADS_UP_NOTIFICATION_SNOOZE,HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR);
         }
 
         /**
