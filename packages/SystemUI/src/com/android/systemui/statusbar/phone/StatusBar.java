@@ -3857,6 +3857,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.SHOW_BACK_ARROW_GESTURE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
         }
 
         @Override
@@ -3866,12 +3870,24 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         public void update() {
             setHideArrowForBackGesture();
+            setHeadsUpStoplist();
+            setHeadsUpBlacklist();
         }
     }
     private void setHideArrowForBackGesture() {
         if (getNavigationBarView() != null) {
             getNavigationBarView().updateBackArrowForGesture();
         }
+    }
+
+    private void setHeadsUpStoplist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpStoplist();
+    }
+
+    private void setHeadsUpBlacklist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpBlacklist();
     }
 
     public int getWakefulnessState() {
