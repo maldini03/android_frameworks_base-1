@@ -3881,6 +3881,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILE_TITLE_VISIBILITY),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_STOPLIST_VALUES),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -3891,6 +3897,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         public void update() {
             setHideArrowForBackGesture();
             setQsColumns();
+            setHeadsUpStoplist();
+            setHeadsUpBlacklist();
         }
     }
     private void setHideArrowForBackGesture() {
@@ -3907,6 +3915,16 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mQuickQSPanel != null) {
             mQuickQSPanel.updateSettings();
         }
+    }
+
+    private void setHeadsUpStoplist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpStoplist();
+    }
+
+    private void setHeadsUpBlacklist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpBlacklist();
     }
 
     public int getWakefulnessState() {
