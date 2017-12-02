@@ -273,6 +273,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback,
         if (mTileLayout != null) {
             mTileLayout.updateResources();
         }
+        if (mCustomizePanel != null) {
+            mCustomizePanel.updateResources();
+        }
     }
 
     @Override
