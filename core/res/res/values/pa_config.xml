@@ -16,6 +16,16 @@
 -->
 <resources>
 
+    <!-- Power menu -->
+    <string-array translatable="false" name="config_custom_globalActionsList">
+        <item>power</item>
+        <item>restart</item>
+        <item>advanced</item>
+        <item>lockdown</item>
+        <item>logout</item>
+        <item>screenshot</item>
+    </string-array>
+
     <!-- The list of components which should be automatically disabled. -->
     <string-array name="config_disabledComponents" translatable="false">
     </string-array>
