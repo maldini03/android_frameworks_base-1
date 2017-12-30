@@ -4929,6 +4929,27 @@ public final class Settings {
         public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
 
         /**
+         * Whether to display the reboot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_REBOOT = "powermenu_reboot";
+
+        /**
+         * Whether to display the advanced reboot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_ADVANCED_REBOOT = "powermenu_advanced_reboot";
+
+        /**
+         * Whether to display the screenshot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
