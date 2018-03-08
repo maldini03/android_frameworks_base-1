@@ -18,4 +18,13 @@
     <!-- The margin between Emergency Carrier area and pattern/pin
          view to incorporate the FOD icon -->
     <dimen name="keyguard_security_fod_view_margin">140dp</dimen>
+
+    <!-- Hardware ui (power menu) alignement:
+         Use one of the following values basing on the power button position:
+         * Top | Back -> 49 (Gravity.TOP | Gravity.CENTER_HORIZONTAL)
+         * Left -> 51 (Gravity.TOP | Gravity.LEFT)
+         * Right -> 53 (Gravity.TOP | Gravity.RIGHT)
+    -->
+    <integer name="hardware_ui_align">53</integer>
+
 </resources>
