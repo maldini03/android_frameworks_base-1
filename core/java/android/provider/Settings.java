@@ -5056,6 +5056,12 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+        * Bottom brightness slider
+        * @hide
+        */
+        public static final String QS_BOTTOM_BRIGHTNESS = "qs_bottom_brightness";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
