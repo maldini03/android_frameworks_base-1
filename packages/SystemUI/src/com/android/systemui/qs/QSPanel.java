@@ -99,6 +99,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private BrightnessMirrorController mBrightnessMirrorController;
     private View mDivider;
 
+    private boolean mBrightnessBottom;
+
     public QSPanel(Context context) {
         this(context, null);
     }
@@ -220,6 +222,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         if (mBrightnessView != null) {
             removeView(mBrightnessView);
             addView(mBrightnessView, getBrightnessViewPositionBottom());
+            mBrightnessBottom = true;
         }
     }
 
@@ -763,5 +766,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 configureTile(r.tile, r.tileView);
             }
         }
+    }
+
+    public boolean isBrightnessViewBottom() {
+        return mBrightnessBottom;
+
     }
 }
