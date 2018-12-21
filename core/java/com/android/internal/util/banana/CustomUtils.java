@@ -155,6 +155,10 @@ public class CustomUtils {
         FireActions.clearAllNotifications();
     }
 
+    public static void toggleNotifications() {
+        FireActions.toggleNotifications();
+    }
+
     private static final class FireActions {
         private static IStatusBarService mStatusBarService = null;
         private static IStatusBarService getStatusBarService() {
@@ -183,6 +187,17 @@ public class CustomUtils {
             if (service != null) {
                 try {
                     service.onClearAllNotifications(ActivityManager.getCurrentUser());
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
+            }
+        }
+
+        public static void toggleNotifications() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.expandNotificationsPanel();
                 } catch (RemoteException e) {
                     // do nothing.
                 }
