@@ -3869,6 +3869,18 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.SHOW_BACK_ARROW_GESTURE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_COLUMNS),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_QUICKBAR_COLUMNS),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_TITLE_VISIBILITY),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -3878,11 +3890,20 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         public void update() {
             setHideArrowForBackGesture();
+            setQsColumns();
         }
     }
     private void setHideArrowForBackGesture() {
         if (getNavigationBarView() != null) {
             getNavigationBarView().updateBackArrowForGesture();
+        }
+    }
+
+    private void setQsColumns() {
+        if (mQSPanel != null) {
+            mQSPanel.updateResources();
+            mQSPanel.updateSettings();
+            mQuickQSPanel.updateSettings();
         }
     }
 
