@@ -158,4 +158,7 @@
       <item>com.snapchat.android</item>
   </string-array>
 
+    <!-- Smart charging battery percentage -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+
 </resources>
