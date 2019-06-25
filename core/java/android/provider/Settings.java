@@ -9104,6 +9104,18 @@ public final class Settings {
         public static final String START_SCREEN_STATE_SERVICE = "start_screen_state_service";
 
         /**
+         * Indicates whether a DPC has been downloaded during provisioning.
+         *
+         * <p>Type: int (0 for false, 1 for true)
+         *
+         * <p>If this is true, then any attempts to begin setup again should result in factory reset
+         *
+         * @hide
+         */
+        public static final String MANAGED_PROVISIONING_DPC_DOWNLOADED =
+                "managed_provisioning_dpc_downloaded";
+
+        /**
          * Whether to draw text with high contrast while in accessibility mode.
          *
          * @hide
