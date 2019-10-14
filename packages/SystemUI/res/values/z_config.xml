@@ -34,4 +34,7 @@
         caffeine,heads_up,usb_tether
     </string>
 
+    <!-- Max visible system icons -->
+    <integer name="config_maxVisibleStatusIconContainer">7</integer>
+
 </resources>
