@@ -38,7 +38,7 @@
 
     <!-- Additional QS Tiles. Order should match "quick_settings_tiles_extra_default" -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        caffeine,screenstabilization,screen_record,reboot
+        caffeine,screenstabilization,screen_record,reboot,screenshot
     </string>
 
     <!-- Whether to use the mask for the quicksettings icons-->
