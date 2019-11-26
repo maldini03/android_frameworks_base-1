@@ -1211,7 +1211,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
                         config);
             }
             config.showVolteIcon = res.getBoolean(R.bool.config_display_volte);
-            config.showHDVolteIcon = res.getBoolean(R.bool.config_display_hd_volte);
+            config.showHDVolteIcon = res.getBoolean(com.android.internal.R.bool.config_display_hd_volte);
             return config;
         }
 
