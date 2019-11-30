@@ -63,4 +63,6 @@
     <dimen name="screenrecord_dialog_padding">18dp</dimen>
     <dimen name="screenrecord_logo_size">24dp</dimen>
 
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
 </resources>
