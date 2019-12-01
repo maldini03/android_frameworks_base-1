@@ -174,6 +174,11 @@ oneway interface IStatusBar
     void onRecentsAnimationStateChanged(boolean running);
 
     /**
+     * Notifies System UI whether we are showing partial screenshot view or not.
+     */
+    void setPartialScreenshot(boolean active);
+
+    /**
      * Z-Project
      */
     void toggleCameraFlash();
