@@ -121,4 +121,5 @@ interface IStatusBarService
     void preloadRecentApps();
     void cancelPreloadRecentApps();
     void startAssist(in Bundle args);
+    void setPartialScreenshot(boolean active);
 }

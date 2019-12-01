@@ -177,4 +177,5 @@ oneway interface IStatusBar
      * Z-Project
      */
     void toggleCameraFlash();
+    void setPartialScreenshot(boolean active);
 }
