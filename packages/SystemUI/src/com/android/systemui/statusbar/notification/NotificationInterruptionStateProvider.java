@@ -374,14 +374,14 @@ public class NotificationInterruptionStateProvider {
         if (mSkipHeadsUp) {
             boolean isNonInstrusive = notificationPackageName.contains("dialer") ||
                 notificationPackageName.contains("clock");
-            return !getShadeController().isDozing() && mSkipHeadsUp && !isNonInstrusive;
+            return !mStatusBarStateController.isDozing() && mSkipHeadsUp && !isNonInstrusive;
         }
 
         boolean isLessBoring = notificationPackageName.contains("dialer") ||
                 notificationPackageName.contains("clock") ||
                 notificationPackageName.contains("messaging");
 
-        return !getShadeController().isDozing() && mLessBoringHeadsUp && !isLessBoring;
+        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isLessBoring;
     }
 
     /**
