@@ -5912,6 +5912,15 @@ public final class Settings {
         public static final String FOD_PRESSED_STATE = "fod_pressed_state";
 
         /**
+         * Whether to show arrow keys in navigation bar
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
+
+        private static final Validator NAVIGATION_BAR_ARROW_KEYS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6038,7 +6047,8 @@ public final class Settings {
             LOCK_SHOW_STATUS_BAR,
             QS_BLUR_INTENSITY,
             TEXT_CLOCK_ALIGNMENT,
-            DOUBLE_TAP_SLEEP_GESTURE
+            DOUBLE_TAP_SLEEP_GESTURE,
+            NAVIGATION_BAR_ARROW_KEYS,
         };
 
         /**
@@ -6243,6 +6253,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
             PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_QS_UNEXPANDED);
+            PRIVATE_SETTINGS.add(NAVIGATION_BAR_ARROW_KEYS);
         }
 
         /**
@@ -6408,6 +6419,8 @@ public final class Settings {
             VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
             VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
             VALIDATORS.put(BRIGHTNESS_SLIDER_QS_UNEXPANDED, BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR);
+            VALIDATORS.put(NAVIGATION_BAR_ARROW_KEYS,
+                    NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);
         }
 
         /**
