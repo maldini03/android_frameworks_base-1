@@ -220,7 +220,7 @@ import com.android.internal.util.hwkeys.ActionHandler;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.ScreenshotHelper;
 import com.android.internal.util.ScreenShapeHelper;
-import com.android.internal.util.zproject.Utils;
+import com.android.internal.util.zproject.ActionUtils;
 import com.android.server.ExtconStateObserver;
 import com.android.server.ExtconUEventObserver;
 import com.android.server.GestureLauncherService;
@@ -838,7 +838,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private void toggleFlashLight() {
         performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Flashlight toggle");
-        Utils.toggleCameraFlash();
+        ActionUtils.toggleCameraFlash();
     }
 
     private UEventObserver mHDMIObserver = new UEventObserver() {
