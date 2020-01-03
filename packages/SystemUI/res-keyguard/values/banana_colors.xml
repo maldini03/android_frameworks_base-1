@@ -21,4 +21,7 @@
     <color name="binary_clock_ambient_dot_color">#ffffff</color>
     <color name="binary_clock_ambient_empty_dot_color">#ffffff</color>
 
+    <!-- Allow devices to use unordinary cutout overlays -->
+    <bool name="config_customCutout">false</bool>
+
 </resources>
