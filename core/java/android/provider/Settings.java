@@ -5957,6 +5957,12 @@ public final class Settings {
                 SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
 
         /**
+         * FOD pressed state
+         * @hide
+         */
+        public static final String FOD_PRESSED_STATE = "fod_pressed_state";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
