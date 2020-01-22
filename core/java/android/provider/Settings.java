@@ -5767,6 +5767,15 @@ public final class Settings {
         private static final Validator QS_BACKGROUND_BLUR_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * QS blur alpha
+         * @hide
+         */
+        public static final String QS_BACKGROUND_BLUR_ALPHA = "qs_background_blur_alpha";
+
+        /** @hide */
+        private static final Validator QS_BACKGROUND_BLUR_ALPHA_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5896,6 +5905,7 @@ public final class Settings {
             PULSE_AMBIENT_LIGHT_REPEAT_COUNT,
             BACK_GESTURE_HAPTIC,
             QS_BACKGROUND_BLUR,
+            QS_BACKGROUND_BLUR_ALPHA,
         };
 
         /**
@@ -6251,6 +6261,7 @@ public final class Settings {
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_REPEAT_COUNT, PULSE_AMBIENT_LIGHT_REPEAT_COUNT_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
             VALIDATORS.put(QS_BACKGROUND_BLUR, QS_BACKGROUND_BLUR_VALIDATOR);
+            VALIDATORS.put(QS_BACKGROUND_BLUR_ALPHA, QS_BACKGROUND_BLUR_ALPHA_VALIDATOR);
         }
 
         /**
