@@ -1176,6 +1176,7 @@ public class CarStatusBar extends StatusBar implements CarBatteryController.Batt
         }
 
         mNavigationBarWindow.setVisibility(isKeyboardVisible ? View.GONE : View.VISIBLE);
+        setNotificationViewBottomMargin(isKeyboardVisible ? 0 : mNavigationBarWindow.getHeight());
         mBottomNavBarVisible = !isKeyboardVisible;
     }
 
@@ -1237,6 +1238,13 @@ public class CarStatusBar extends StatusBar implements CarBatteryController.Batt
         addTemperatureViewToController(mNavigationBarView);
         addTemperatureViewToController(mLeftNavigationBarView);
         addTemperatureViewToController(mRightNavigationBarView);
+    }
+
+    private void setNotificationViewBottomMargin(int bottomMargin) {
+        ViewGroup.MarginLayoutParams params =
+                (ViewGroup.MarginLayoutParams) mNotificationView.getLayoutParams();
+        params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, bottomMargin);
+        mNotificationView.setLayoutParams(params);
     }
 
     @Override
