@@ -4183,6 +4183,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_BLUR),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.BACK_GESTURE_HAPTIC),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4203,6 +4206,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateCorners();
             setHideArrowForBackGesture();
             setLockScreenMediaBlurLevel();
+            setHapticFeedbackForBackGesture();
         }
     }
 
@@ -4290,6 +4294,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setLockScreenMediaBlurLevel() {
         if (mMediaManager != null) {
             mMediaManager.setLockScreenMediaBlurLevel();
+        }
+    }
+
+    private void setHapticFeedbackForBackGesture() {
+        if (getNavigationBarView() != null) {
+            getNavigationBarView().updateBackGestureHaptic();
         }
     }
 
