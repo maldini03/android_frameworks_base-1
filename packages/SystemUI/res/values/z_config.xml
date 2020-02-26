@@ -31,7 +31,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        caffeine,heads_up,usb_tether,lte,smartpixels,cpuinfo,screenshot,screenrecord,compass,music,reboot,soundsearch,gaming,dataswitch,adb_network,sync,screenstabilization,aod,sound
+        caffeine,heads_up,usb_tether,lte,smartpixels,cpuinfo,screenshot,screenrecord,compass,music,reboot,soundsearch,gaming,dataswitch,adb_network,sync,screenstabilization,aod,sound,fpsinfo
     </string>
 
     <!-- Max visible system icons -->
@@ -78,5 +78,8 @@
     <!-- Whether the binned brightness sensor reports a value of 0 on proximity
          near events -->
     <bool name="doze_brightness_sensor_reports_proximity" translatable="false">true</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false"></string>
 
 </resources>
