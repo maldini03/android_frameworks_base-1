@@ -38,9 +38,12 @@
 
     <!-- Additional QS Tiles. Order should match "quick_settings_tiles_extra_default" -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        caffeine,screenstabilization,screen_record,reboot
+        caffeine,screenstabilization,screen_record,reboot,fpsinfo
     </string>
 
     <!-- Whether to use the mask for the quicksettings icons-->
     <bool name="config_useMaskForQs">true</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false"></string>
 </resources>
