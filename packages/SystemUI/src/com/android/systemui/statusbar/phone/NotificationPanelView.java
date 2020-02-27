@@ -110,7 +110,6 @@ import com.android.systemui.statusbar.policy.KeyguardUserSwitcher;
 import com.android.systemui.statusbar.policy.OnHeadsUpChangedListener;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.util.InjectionInflationController;
-import com.android.systemui.zproject.NotificationLightsView;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -337,7 +336,6 @@ public class NotificationPanelView extends PanelView implements
     private FalsingManager mFalsingManager;
     private String mLastCameraLaunchSource = KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE;
     private LockPatternUtils mLockPatternUtils;
-    private NotificationLightsView mPulseLightsView;
 
     private boolean mStatusBarShownOnSecureKeyguard;
 
@@ -562,7 +560,6 @@ public class NotificationPanelView extends PanelView implements
         mKeyguardBottomArea = findViewById(R.id.keyguard_bottom_area);
         mQsNavbarScrim = findViewById(R.id.qs_navbar_scrim);
         mLastOrientation = getResources().getConfiguration().orientation;
-        mPulseLightsView = (NotificationLightsView) findViewById(R.id.lights_container);
 
         initBottomArea();
 
@@ -3431,9 +3428,6 @@ public class NotificationPanelView extends PanelView implements
         DozeParameters dozeParameters = DozeParameters.getInstance(mContext);
         final boolean animatePulse = !dozeParameters.getDisplayNeedsBlanking()
                 && dozeParameters.getAlwaysOn();
-        boolean pulseLights = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT, 0, UserHandle.USER_CURRENT) != 0;
-
         if (animatePulse) {
             mAnimateNextPositionUpdate = true;
         }
@@ -3441,13 +3435,6 @@ public class NotificationPanelView extends PanelView implements
         // The height callback will take care of pushing the clock to the right position.
         if (!mPulsing && !mDozing) {
             mAnimateNextPositionUpdate = false;
-        }
-        if ((mPulseLightsView != null) && pulseLights) {
-            mPulseLightsView.setVisibility(mPulsing ? View.VISIBLE : View.GONE);
-            if (mPulsing) {
-                mPulseLightsView.animateNotification();
-                mPulseLightsView.setPulsing(pulsing);
-            }
         }
         mNotificationStackScroller.setPulsing(pulsing, animatePulse);
         mKeyguardStatusView.setPulsing(pulsing);
