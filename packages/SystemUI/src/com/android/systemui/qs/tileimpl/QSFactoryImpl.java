@@ -55,7 +55,6 @@ import com.android.systemui.qs.tiles.ThemeTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.SoundTile;
-import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -97,7 +96,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<LteTile> mLteTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
-    private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<GamingModeTile> mGamingModeTileProvider;
@@ -165,7 +163,6 @@ public class QSFactoryImpl implements QSFactory {
         mScreenshotTileProvider = screenshotTileProvider;
         mLteTileProvider = lteTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
-        mScreenRecordTileProvider = screenRecordTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mGamingModeTileProvider = gamingModeTileProvider;
@@ -240,8 +237,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mLteTileProvider.get();
             case "cpuinfo":
                 return mCPUInfoTileProvider.get();
-            case "screenrecord":
-                return mScreenRecordTileProvider.get();
             case "hwkeys":
                 return mHWKeysTileProvider.get();
             case "dataswitch":
