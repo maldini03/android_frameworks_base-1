@@ -362,7 +362,7 @@
         <activity android:name=".tuner.NavbarActivity"
                   android:enabled="true"
                   android:icon="@drawable/tuner"
-                  android:theme="@style/CustomTunerSettings"
+                  android:theme="@style/ExTunerSettings"
                   android:label="@string/systemui_tuner_navbar_title"
                   android:parentActivityName="com.dirtyunicorns.tweaks.DirtyTweaks"
                   android:process=":tuner"
