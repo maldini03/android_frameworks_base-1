@@ -42,7 +42,6 @@ import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
-import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.ImmersiveTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -96,7 +95,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<LteTile> mLteTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
-    private final Provider<HWKeysTile> mHWKeysTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
@@ -132,7 +130,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<LteTile> lteTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
             Provider<ScreenRecordTile> screenRecordTileProvider,
-            Provider<HWKeysTile> hWKeysTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<ImmersiveTile> immersiveTileProvider,
@@ -163,7 +160,6 @@ public class QSFactoryImpl implements QSFactory {
         mScreenshotTileProvider = screenshotTileProvider;
         mLteTileProvider = lteTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
-        mHWKeysTileProvider = hWKeysTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mGamingModeTileProvider = gamingModeTileProvider;
         mImmersiveTileProvider = immersiveTileProvider;
@@ -237,8 +233,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mLteTileProvider.get();
             case "cpuinfo":
                 return mCPUInfoTileProvider.get();
-            case "hwkeys":
-                return mHWKeysTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
             case "theme":
