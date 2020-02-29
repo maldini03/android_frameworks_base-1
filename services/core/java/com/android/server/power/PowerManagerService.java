@@ -5072,9 +5072,10 @@ public final class PowerManagerService extends SystemService
         public void updateBlockedUids(int uid, boolean isBlocked) {
             synchronized(mLock) {
                 qcNsrmPowExt.processPmsBlockedUid(uid, isBlocked,
+                                                             mWakeLocks);
             }
         }
-    }
+}
 
     @VisibleForTesting
     BinderService getBinderServiceInstance() {

@@ -254,7 +254,7 @@ public class GamingModeController {
                     Settings.System.GAMING_MODE_HW_KEYS_TOGGLE, 0) == 1;
         if (disableHwKeys) {
             mHwKeysState = Settings.System.getInt(mContext.getContentResolver(),
-                              Settings.Secure.FORCE_SHOW_NAVBAR, 0);
+                              Settings.System.FORCE_SHOW_NAVBAR, 0);
             Settings.System.putInt(mContext.getContentResolver(),
                 Settings.System.FORCE_SHOW_NAVBAR, 1);
         }
