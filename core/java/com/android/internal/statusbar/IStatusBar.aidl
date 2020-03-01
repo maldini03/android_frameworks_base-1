@@ -183,4 +183,5 @@ oneway interface IStatusBar
      * Z-Project
      */
     void toggleCameraFlash();
+    void killForegroundApp();
 }
