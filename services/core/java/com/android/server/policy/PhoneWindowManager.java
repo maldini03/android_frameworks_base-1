@@ -216,11 +216,6 @@ import com.android.internal.policy.IShortcutService;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.hwkeys.ActionHandler;
-import com.android.internal.util.hwkeys.ActionUtils;
-import com.android.internal.util.ScreenshotHelper;
-import com.android.internal.util.ScreenShapeHelper;
-import com.android.internal.util.zproject.ActionUtils;
 import com.android.server.ExtconStateObserver;
 import com.android.server.ExtconUEventObserver;
 import com.android.server.GestureLauncherService;
@@ -527,7 +522,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     int mVeryLongPressTimeout;
     boolean mAllowStartActivityForLongPressOnPowerDuringSetup;
     MetricsLogger mLogger;
-    private HardkeyActionHandler mKeyHandler;
 
     private boolean mHandleVolumeKeysInWM;
 
@@ -715,8 +709,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_DISPATCH_VOLKEY_SKIP_TRACK = 29;
     private static final int MSG_TOGGLE_TORCH = 30;
 
-    private boolean mHasPermanentMenuKey;
-
     private SwipeToScreenshotListener mSwipeToScreenshot;
 
     private boolean mHasAlertSlider = false;
@@ -812,17 +804,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 case MSG_MOVE_DISPLAY_TO_TOP:
                     mWindowManagerFuncs.moveDisplayToTop(msg.arg1);
                     mMovingDisplayToTopKeyTriggered = false;
-                    break;
-                case HardkeyActionHandler.MSG_FIRE_HOME:
-                    launchHomeFromHotKey(DEFAULT_DISPLAY);
-                    break;
-                case HardkeyActionHandler.MSG_UPDATE_MENU_KEY:
-                    synchronized (mLock) {
-                        mHasPermanentMenuKey = msg.arg1 == 1;
-                    }
-                    break;
-                case HardkeyActionHandler.MSG_DO_HAPTIC_FB:
-                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false, "Hardkey Long-Press");
                     break;
                 case MSG_DISPATCH_VOLKEY_SKIP_TRACK: {
                     sendSkipTrackEventToStatusBar(msg.arg1);
@@ -2042,11 +2023,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         });
         mWakeGestureListener = new MyWakeGestureListener(mContext, mHandler);
-        // only for hwkey devices
-        if (!mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar)) {
-            mKeyHandler = new HardkeyActionHandler(mContext, mHandler);
-        }
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
         mShortcutManager = new ShortcutManager(context);
@@ -2988,27 +2964,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
         final int displayId = event.getDisplayId();
-        final boolean longPress = (flags & KeyEvent.FLAG_LONG_PRESS) != 0;
-        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
                     + repeatCount + " keyguardOn=" + keyguardOn + " canceled=" + canceled);
-        }
-
-        // we only handle events from hardware key devices that originate from
-        // real button
-        // pushes. We ignore virtual key events as well since it didn't come
-        // from a hard key or
-        // it's the key handler synthesizing a back or menu key event for
-        // dispatch
-        // if keyguard is showing and secure, don't intercept and let aosp keycode
-        // implementation handle event
-        if (mKeyHandler != null && !keyguardOn && !virtualKey) {
-            boolean handled = mKeyHandler.handleKeyEvent(win, keyCode, repeatCount, down, canceled,
-                    longPress, keyguardOn);
-            if (handled)
-                return -1;
         }
 
         // If we think we might have a volume down & power key chord on the way
@@ -4065,10 +4024,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         keyguardIntent.setPackage("com.android.systemui");
         keyguardIntent.putExtra("launch", launchIntent);
         context.sendBroadcastAsUser(keyguardIntent, user);
-    }
-
-    private boolean isHwKeysDisabled() {
-        return mKeyHandler != null ? mKeyHandler.isHwKeysDisabled() : false;
     }
 
     // TODO(b/117479243): handle it in InputPolicy
@@ -6093,11 +6048,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mHandler.post(mScreenshotRunnable);
             }
         }
-    }
-
-    @Override
-    public boolean hasPermanentMenuKey() {
-        return !hasNavigationBar() && mHasPermanentMenuKey;
     }
 
     @Override
