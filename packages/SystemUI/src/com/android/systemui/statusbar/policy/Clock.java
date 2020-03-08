@@ -68,7 +68,7 @@ import java.util.TimeZone;
 public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.Callbacks,
         DarkReceiver, ConfigurationListener, RecordingStateListener {
 
-    public static final String CLOCK_SECONDS = "clock_seconds";
+    public static final String CLOCK_SECONDS = "system:" + Settings.System.STATUS_BAR_CLOCK_SECONDS;;
     public static final String CLOCK_STYLE = "system:" + Settings.System.STATUS_BAR_AM_PM;
 
     private static final String CLOCK_SUPER_PARCELABLE = "clock_super_parcelable";
