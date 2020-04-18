@@ -4983,6 +4983,17 @@ public final class Settings {
 
 
         /**
+         * Whether to have translucent background on lockscreen notifications
+         * @hide
+         */
+        public static final String LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED
+                = "lockscreen_translucent_notifications_bg_enabled";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5215,6 +5226,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(ANIM_TILE_INTERPOLATOR);
             PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
             PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
         }
 
         /**
@@ -5338,6 +5350,7 @@ public final class Settings {
             VALIDATORS.put(ANIM_TILE_INTERPOLATOR, ANIM_TILE_INTERPOLATOR_VALIDATOR);
             VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
             VALIDATORS.put(NAV_BAR_COMPACT_LAYOUT, NAV_BAR_COMPACT_LAYOUT_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
         }
 
         /**

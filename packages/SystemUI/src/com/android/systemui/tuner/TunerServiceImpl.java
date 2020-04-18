@@ -38,6 +38,7 @@ import com.android.systemui.BatteryMeterView;
 import com.android.systemui.DemoMode;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.CurrentUserTracker;
+import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout;
 import com.android.systemui.statusbar.phone.ClockController;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.Clock;
@@ -67,6 +68,7 @@ public class TunerServiceImpl extends TunerService {
             BatteryMeterView.STATUS_BAR_BATTERY_STYLE,
             Clock.CLOCK_STYLE,
             ClockController.CLOCK_POSITION,
+            NotificationStackScrollLayout.LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON
     };
