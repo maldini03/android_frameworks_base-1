@@ -4626,48 +4626,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Network traffic indicator mode
-         * 0 = Don't show network traffic indicator
-         * 1 = Display up-stream traffic only
-         * 2 = Display down-stream traffic only
-         * 3 = Display both up- and down-stream traffic
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_MODE = "network_traffic_mode";
-
-        /** @hide */
-        public static final Validator NETWORK_TRAFFIC_MODE_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
-
-        /**
-         * Whether or not to hide the network traffic indicator when there is no activity
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_AUTOHIDE = "network_traffic_autohide";
-
-        /** @hide */
-        public static final Validator NETWORK_TRAFFIC_AUTOHIDE_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * Measurement unit preference for network traffic
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_UNITS = "network_traffic_units";
-
-        /** @hide */
-        public static final Validator NETWORK_TRAFFIC_UNITS_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
-
-        /**
-         * Whether or not to show measurement units in the network traffic indiciator
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_SHOW_UNITS = "network_traffic_show_units";
-
-        /** @hide */
-        public static final Validator NETWORK_TRAFFIC_SHOW_UNITS_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
          * How many rows to show in the qs panel when in portrait
          * @hide
          */
@@ -5213,10 +5171,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_BATTERY_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_MODE);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_UNITS);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_SHOW_UNITS);
             PRIVATE_SETTINGS.add(QS_ROWS_PORTRAIT);
             PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
@@ -5337,10 +5291,6 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR);
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_MODE, NETWORK_TRAFFIC_MODE_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE, NETWORK_TRAFFIC_AUTOHIDE_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_UNITS, NETWORK_TRAFFIC_UNITS_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_SHOW_UNITS, NETWORK_TRAFFIC_SHOW_UNITS_VALIDATOR);
             VALIDATORS.put(QS_ROWS_PORTRAIT, QS_ROWS_PORTRAIT_VALIDATOR);
             VALIDATORS.put(QS_ROWS_LANDSCAPE, QS_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(QS_COLUMNS_PORTRAIT, QS_COLUMNS_PORTRAIT_VALIDATOR);
