@@ -122,7 +122,7 @@ public class SoundTile extends QSTileImpl<State> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.BOOTLEG;
+        return MetricsEvent.FEATURE_PREFERENCES;
     }
 
     @Override
