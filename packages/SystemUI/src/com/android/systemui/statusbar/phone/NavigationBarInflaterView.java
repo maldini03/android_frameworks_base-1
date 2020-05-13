@@ -21,6 +21,7 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
