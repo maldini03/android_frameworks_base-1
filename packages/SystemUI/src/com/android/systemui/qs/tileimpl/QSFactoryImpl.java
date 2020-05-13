@@ -114,9 +114,9 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<ScreenStabilizationTile> screenStabilizationTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
-            Provider<ScreenRecordTile> screenRecordTileProvider) {
-            Provider<VolumeTile> volumeTileProvider) {
-            Provider<RebootTile> rebootTileProvider) {
+            Provider<ScreenRecordTile> screenRecordTileProvider,
+            Provider<VolumeTile> volumeTileProvider,
+            Provider<RebootTile> rebootTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
