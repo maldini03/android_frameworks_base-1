@@ -88,7 +88,7 @@ public class RebootTile extends QSTileImpl<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.HAVOC_SETTINGS;
+        return MetricsEvent.FUTURE_PREFERENCES;
     }
 
     @Override
