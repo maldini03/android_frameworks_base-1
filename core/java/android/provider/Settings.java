@@ -5008,7 +5008,7 @@ public final class Settings {
 
         /** @hide */
         public static final Validator STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2)
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
          * Whether to show the battery info on the lockscreen while charging
