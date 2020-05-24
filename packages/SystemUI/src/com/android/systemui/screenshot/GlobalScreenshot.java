@@ -98,7 +98,6 @@ import android.widget.Toast;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.messages.nano.SystemMessageProto.SystemMessage;
-import com.android.internal.util.zproject.Utils;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.SystemUI;
@@ -805,7 +804,6 @@ class GlobalScreenshot {
         mPartialShot = true;
         ViewConfiguration vc = ViewConfiguration.get(mContext);
         final int touchSlop = vc.getScaledTouchSlop();
-        Utils.setPartialScreenshot(true);
         mScreenshotSelectorView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -824,7 +822,6 @@ class GlobalScreenshot {
                         float x = event.getRawX();
                         float y = event.getRawY();
                         view.setVisibility(View.GONE);
-                        Utils.setPartialScreenshot(false);
                         mWindowManager.removeView(mScreenshotLayout);
                         if (Math.abs(mTouchDownX - x) > touchSlop ||
                             Math.abs(mTouchDownY - y) > touchSlop) {
@@ -873,8 +870,6 @@ class GlobalScreenshot {
             } catch (IllegalArgumentException ignored) {
             }
         }
-        // called from action_cancel and also when unbinding screenshot service
-        Utils.setPartialScreenshot(false);
     }
 
     /**
