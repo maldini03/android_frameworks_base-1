@@ -35,7 +35,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.internal.util.dk.Utils;
+import com.android.internal.util.aospa.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.plugins.DarkIconDispatcher;

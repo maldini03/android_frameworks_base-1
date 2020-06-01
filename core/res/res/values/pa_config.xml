@@ -39,6 +39,12 @@
          1: Right side -->
     <integer name="config_alertSliderLocation">0</integer>
 
+    <!-- Path to the library that contains a alternative device specific key handler -->
+    <string name="config_alternativeDeviceKeyHandlerLib" translatable="false"></string>
+
+    <!-- Name of that alternative key handler class -->
+    <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
+
     <!-- Paths to the libraries that contain device specific key handlers -->
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
     </string-array>
@@ -167,5 +173,5 @@
 
     <!-- Whether device ignores the RSSNR signal implementation -->
     <bool name="config_ignoreRssnrSignalLevel">false</bool>
-	
+
 </resources>

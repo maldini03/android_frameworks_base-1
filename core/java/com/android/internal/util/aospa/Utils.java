@@ -59,7 +59,7 @@ public class Utils {
 
     private static IStatusBarService mStatusBarService = null;
     private static IStatusBarService getStatusBarService() {
-        synchronized (CrUtils.class) {
+        synchronized (Utils.class) {
             if (mStatusBarService == null) {
                 mStatusBarService = IStatusBarService.Stub.asInterface(
                         ServiceManager.getService("statusbar"));

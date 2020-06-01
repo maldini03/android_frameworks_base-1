@@ -1150,8 +1150,6 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.integer.config_oneFingerSwipeLeftKeyCode) > 0;
         mSupportsTwoFingerSwipeConfig = resources.getInteger(
                 com.android.internal.R.integer.config_twoFingerSwipeKeyCode) > 0;
-        mSupportsDoubleTapWakeConfig = resources.getBoolean(
-                com.android.internal.R.bool.config_supportDoubleTapWake);
         // Smart charging
         mSmartChargingLevelDefaultConfig = resources.getInteger(
                 com.android.internal.R.integer.config_smartChargingBatteryLevel);

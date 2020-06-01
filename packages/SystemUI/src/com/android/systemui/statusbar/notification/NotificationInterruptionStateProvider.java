@@ -40,6 +40,7 @@ import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.statusbar.NotificationPresenter;
 import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.notification.collection.NotificationEntry;
+import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
 
@@ -70,6 +71,7 @@ public class NotificationInterruptionStateProvider {
     private NotificationPresenter mPresenter;
     private HeadsUpManager mHeadsUpManager;
     private HeadsUpSuppressor mHeadsUpSuppressor;
+    private ShadeController mShadeController;
 
     private ContentObserver mHeadsUpObserver;
     @VisibleForTesting
@@ -158,6 +160,13 @@ public class NotificationInterruptionStateProvider {
                     mHeadsUpObserver);
         }
         mHeadsUpObserver.onChange(true); // set up
+    }
+
+    private ShadeController getShadeController() {
+        if (mShadeController == null) {
+            mShadeController = Dependency.get(ShadeController.class);
+        }
+        return mShadeController;
     }
 
     /**
